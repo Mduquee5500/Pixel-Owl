@@ -1,6 +1,6 @@
 const Navbar = () => {
   return (
-    <nav className="bg-[#1c1c3c] text-white py-6 px-4 flex items-center justify-between">
+    <nav className="bg-[#1c1c3c] text-white py-6 px-4 flex items-center justify-between sticky top-0 z-50 shadow-lg">
       <a className="font-bold text-xl tracking-tight font-mono" href="#">
         Pixel Owl
       </a>
