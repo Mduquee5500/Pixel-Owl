@@ -1,0 +1,17 @@
+[
+  {
+    "id": 1,
+    "username": "mateoduque",
+    "password": "abc123"
+  },
+  {
+    "id": "7f380cbe-c4a2-43a2-9f04-6d1c7ed1783f",
+    "username": "newUser",
+    "password": "12345"
+  },
+  {
+    "id": "f638b2ee-eed3-4e0e-9f63-8c831a0211f1",
+    "username": "a",
+    "password": "a"
+  }
+]
