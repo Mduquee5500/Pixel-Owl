@@ -68,7 +68,7 @@ app.get('/scores', (req, res) => {
 });
 
 // POST new score
-app.post('/score', (req, res) => {
+app.post('/scores', (req, res) => {
   const { username, score } = req.body;
 
   if (!username || typeof score !== 'number') {

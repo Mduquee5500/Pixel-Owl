@@ -1,24 +1,28 @@
-import React, { createContext, useState, useContext } from "react";
+import React, { createContext, useState, useContext, useEffect } from "react";
 
-// 1. Crear el contexto
 const AuthContext = createContext(null);
 
-// 2. Crear el provider que mantiene el estado del usuario
 export const AuthProvider = ({ children }) => {
-  // Estado para guardar info del usuario logueado
   const [user, setUser] = useState(null);
 
-  // Función para hacer login (setear usuario)
+  // Al montar, revisamos si hay usuario guardado
+  useEffect(() => {
+    const savedUser = localStorage.getItem("username");
+    if (savedUser) {
+      setUser(savedUser);
+    }
+  }, []);
+
   const login = (userData) => {
+    localStorage.setItem("username", userData);
     setUser(userData);
   };
 
-  // Función para hacer logout (limpiar usuario)
   const logout = () => {
+    localStorage.removeItem("username");
     setUser(null);
   };
 
-  // Proveer el estado y funciones a los componentes hijos
   return (
     <AuthContext.Provider value={{ user, login, logout }}>
       {children}
@@ -26,5 +30,4 @@ export const AuthProvider = ({ children }) => {
   );
 };
 
-// Hook para usar fácil el contexto en otros componentes
 export const useAuth = () => useContext(AuthContext);

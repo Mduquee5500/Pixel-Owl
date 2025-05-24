@@ -5,6 +5,7 @@ import Owl from "../assets/OwlSprites.png";
 import Sky from "../assets/sky.png";
 import Ground from "../assets/platform.png";
 import Star from "../assets/star.png";
+import { useAuth } from "../context/AuthContext";
 
 const GAME_WIDTH = 800;
 const GAME_HEIGHT = 600;
@@ -15,6 +16,9 @@ const JUMP_VELOCITY = -700;
 const Game = () => {
   const gameRef = useRef(null);
   const phaserGame = useRef(null);
+  const { user } = useAuth();
+  console.log("User from AuthContext:", user);
+  const username = user;
 
   useEffect(() => {
     const config = {
@@ -183,7 +187,7 @@ const Game = () => {
     player.setTint(0xff0000);
     player.anims.play(prevDirection === "left" ? "die-left" : "die-right");
     showGameOverScreen.call(this);
-    sendScore(score);
+    sendScore(username, score);
   };
 
   const showGameOverScreen = function () {
@@ -220,17 +224,26 @@ const Game = () => {
   };
 
   const sendScore = async (username, score) => {
+    const date = new Date().toISOString();
+    const payload = { username, score, date };
+
+    console.log("📤 Enviando datos al backend:", payload);
+
     try {
-      const res = await fetch("http://localhost:3001/score", {
+      const res = await fetch("http://localhost:3001/scores", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ username, score }),
+        body: JSON.stringify(payload),
       });
+
+      const result = await res.json();
+      console.log("📥 Respuesta del servidor:", result);
+
       if (!res.ok) {
-        console.error("Error sending score");
+        console.error("❌ Error al enviar score - status:", res.status);
       }
     } catch (error) {
-      console.error("Error sending score", error);
+      console.error("❌ Error enviando score", error);
     }
   };
 
