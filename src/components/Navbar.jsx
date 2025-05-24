@@ -1,34 +1,36 @@
+import { Link } from "react-router-dom";
+
 const Navbar = () => {
   return (
     <nav className="bg-[#1c1c3c] text-white py-6 px-4 flex items-center justify-between sticky top-0 z-50 shadow-lg">
-      <a className="font-bold text-xl tracking-tight font-mono" href="#">
+      <Link className="font-bold text-xl tracking-tight font-mono" to="/">
         Pixel Owl
-      </a>
+      </Link>
       <div className="flex items-center">
-        <a
+        <Link
           className="text-sm px-4 py-2 leading-none rounded-full hover:bg-gray-700"
-          href="#"
+          to="/"
         >
           Home
-        </a>
-        <a
+        </Link>
+        <Link
           className="text-sm px-4 py-2 leading-none rounded-full hover:bg-gray-700 font-mono"
-          href="#"
+          to="/play"
         >
           Play
-        </a>
-        <a
+        </Link>
+        <Link
           className="text-sm px-4 py-2 leading-none rounded-full hover:bg-gray-700 font-mono"
-          href="#"
+          to="/scoreboard"
         >
           Scoreboard
-        </a>
-        <a
+        </Link>
+        <Link
           className="text-sm px-4 py-2 leading-none rounded-full hover:bg-gray-700 font-mono"
-          href="#"
+          to="/about"
         >
           About
-        </a>
+        </Link>
       </div>
     </nav>
   );

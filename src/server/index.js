@@ -1,5 +1,6 @@
 const { getUsers, saveUsers } = require("./users/userService")
 const { v4: uuidv4 } = require("uuid");
+const { getScores, saveScores } = require ('./scores/scoreServices')
 
 const cors = require('cors')
 const express = require('express');
@@ -56,6 +57,37 @@ app.post("/login", (req, res) => {
 
   res.json({ message: "Login successful", user: { id: user.id, username: user.username } });
 });
+
+// GET top 5 scores ordenados desc por score
+app.get('/scores', (req, res) => {
+  const scores = getScores();
+  const topScores = scores
+    .sort((a, b) => b.score - a.score)
+    .slice(0, 5);
+  res.json(topScores);
+});
+
+// POST new score
+app.post('/score', (req, res) => {
+  const { username, score } = req.body;
+
+  if (!username || typeof score !== 'number') {
+    return res.status(400).json({ error: 'Username and score are required.' });
+  }
+
+  const scores = getScores();
+  const newScore = {
+    username,
+    score,
+    date: new Date().toISOString()
+  };
+
+  scores.push(newScore);
+  saveScores(scores);
+
+  res.json({ success: true });
+});
+
 
 const PORT = 3001;
 app.listen(PORT, () => {

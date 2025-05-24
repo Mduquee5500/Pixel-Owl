@@ -2,6 +2,7 @@ import owlLogo from "../assets/img/owl-export.png";
 import owlGif from "../assets/img/owl-happy.gif";
 import { useState } from "react";
 import Alert from "./Alert";
+import { useNavigate } from "react-router-dom";
 
 const Login = () => {
   const [isSignup, setIsSignup] = useState(false);
@@ -11,6 +12,8 @@ const Login = () => {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [alertMessage, setAlertMessage] = useState("");
   const [showAlert, setShowAlert] = useState(false);
+
+  const navigate = useNavigate();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -50,6 +53,7 @@ const Login = () => {
           body: JSON.stringify({ username, password }),
         });
         if (res.ok) {
+          localStorage.setItem("username", username);
           setAlertMessage("Login successful!");
           setShowAlert(true);
           setTimeout(() => setShowAlert(false), 3000);
@@ -67,7 +71,7 @@ const Login = () => {
 
   return (
     <div className="flex h-screen">
-      <div className="w-full max-w-sm m-auto bg-[#63238d] rounded p-5 border-2 border-[#1c1c3c]">
+      <div className="w-full max-w-sm m-auto bg-[#63238d] rounded p-5 border-[#1c1c1c3c] border-10">
         <header>
           <img
             className="w-20 mx-auto mb-5"
