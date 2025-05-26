@@ -1,12 +1,72 @@
-# React + Vite
+# 🦉 Pixel Owl Platform Game 
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A classic arcade-style platformer game built with **React**, **Phaser 3**, and **Node.js**, featuring user authentication, a scoreboard system, and a modular frontend.
 
-Currently, two official plugins are available:
+## 📸 Screenshots
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
 
-## Expanding the ESLint configuration
+- **Home Page (Login/Register)**
+  
+  ![Home Page](public/images/login.png)
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+- **Game Play**
+
+  ![Game](public/images/play.png)
+
+- **Scoreboard Page**
+
+  ![Scoreboard](public/images/scoreboard.png)
+
+- **About Page**
+
+  ![About](public/images/about.png)
+
+---
+
+## 🚀 Features
+
+- 🎮 Pixel-style **platformer game** using **Phaser 3**.
+- 🔐 **User authentication** (login/register) with context-based session management.
+- 🧾 **Scoreboard** that saves scores by user and date via a **Node.js/Express** backend.
+- 📦 **Persistent storage** in JSON (acts as a simple database).
+- 🌐 Fully responsive UI built with **React** and styled using **Tailwind CSS**.
+- 📘 About section explaining tools and project scope.
+  
+---
+
+## ⚙️ Technologies Used
+
+### Frontend
+
+- **React** (with hooks and functional components)
+- **Phaser 3** (game engine)
+- **Tailwind CSS** (utility-first styling)
+- **React Router DOM** (for navigation)
+- **React Context API** (authentication context)
+
+### Backend
+
+- **Node.js + Express**
+- **JSON-based storage** for scores
+- **CORS enabled** for local development
+
+---
+
+## 📁 Project Structure
+
+```bash
+my-game-app/
+├── public/
+├── src/
+│   ├── assets/             # Game and UI images
+│   ├── components/         # Reusable components
+│   ├── context/            # Auth context logic
+│   ├── pages/              # Home, Game, Scoreboard, About
+│   ├── App.jsx             # Main router
+│   └── main.jsx
+├── server/                 # Node.js backend
+│   ├── scores.json         # Score "database"
+│   └── server.js
+├── tailwind.config.js
+├── README.md
+└── package.json
