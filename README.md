@@ -7,7 +7,7 @@ A classic arcade-style platformer game built with **React**, **Phaser 3**, and *
 
 - **Home Page (Login/Register)**
   
-  ![Home Page](public/images/login.png)
+  ![Home Page](./src/public/img/login.png)
 
 - **Game Play**
 
