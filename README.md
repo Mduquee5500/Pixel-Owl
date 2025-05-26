@@ -11,15 +11,15 @@ A classic arcade-style platformer game built with **React**, **Phaser 3**, and *
 
 - **Game Play**
 
-  ![Game](public/images/play.png)
+  ![Game](src/screenshots/play.png)
 
 - **Scoreboard Page**
 
-  ![Scoreboard](public/images/scoreboard.png)
+  ![Scoreboard](src/screenshots/scoreboard.png)
 
 - **About Page**
 
-  ![About](public/images/about.png)
+  ![About](src/screenshots/about.png)
 
 ---
 
