@@ -3,7 +3,7 @@ import backgroundImage from "../../src/assets/img/background.png";
 
 const Title = () => {
   return (
-    <h1 className="text-6xl font-bold font-mono mt-10 text-center leading-tight text-white drop-shadow-lg">
+    <h1 className="text-3xl font-bold font-mono mt-10 text-center leading-tight text-white drop-shadow-lg">
       Top 5 scores of Pixel Owl!
     </h1>
   );
